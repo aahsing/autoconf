@@ -1,0 +1,12 @@
+[template]
+src = "nfsexport.conf.tmpl"
+dest = "/etc/exports.d/testnew.exports"
+prefix = "/nfs"
+keys = [
+    "/nfspath",
+    "/nfshost",
+    "/nfsperm",
+    "/nfsmode",
+    "/rootsquash",
+    "/nfsfsid",
+]

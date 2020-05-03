@@ -1,0 +1,1 @@
+{{getv "/nfspath"}}   {{getv "/nfshost"}}({{getv "/nfsperm"}},{{getv "/nfsmode"}},fsid={{getv "/nfsfsid"}},{{getv "/rootsquash"}})

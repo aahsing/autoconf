@@ -1,0 +1,7 @@
+[template]
+src = "nfs.conf.tmpl"
+dest = "/etc/exports"
+keys = [
+    "/services/nfs"
+]
+reload_cmd = "/usr/sbin/exportfs -r"

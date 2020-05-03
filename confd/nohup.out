@@ -1,0 +1,37 @@
+2020-05-03T15:17:22+08:00 node0 confd[5636]: INFO Backend set to etcd
+2020-05-03T15:17:22+08:00 node0 confd[5636]: INFO Starting confd
+2020-05-03T15:17:22+08:00 node0 confd[5636]: INFO Backend source(s) set to http://192.168.190.147:2379, http://192.168.190.148:2379, http://192.168.190.149:2379
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Loading template resources from confdir /etc/confd
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Found template: /etc/confd/conf.d/nfs.toml
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Loading template resource from /etc/confd/conf.d/nfs.toml
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Retrieving keys from store
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Key prefix set to /
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Got the following map from store: map[/services/nfs/testnfs1/writemode:sync /services/nfs/testnfs2/hosts/1/permission:rw /services/nfs/testnfs2/hosts/1/writemode:async /services/nfs/testnfs2/rootsquash:no_root_squash /services/nfs/testnfs1/hosts/1/ip:192.168.190.* /services/nfs/testnfs1/hosts/1/writemode:sync /services/nfs/testnfs1/path:/testnfs1 /services/nfs/testnfs1/rwhosts:192.168.190.0/24;192.168.191.155 /services/nfs/testnfs2/hosts/1/ip:192.168.190.148 /services/nfs/testnfs2/hosts/1/rootsquash:no_root_squash /services/nfs/testnfs2/path:/testnfs2 /services/nfs/testnfs2/rohosts:192.168.191.155 /services/nfs/testnfs1/fsid:1000 /services/nfs/testnfs1/hosts/1/permission:rw /services/nfs/testnfs1/rohosts:192.168.191.156 /services/nfs/testnfs3/writemode:async /services/nfs/testnfs3/fsid:1002 /services/nfs/testnfs3/rohosts:192.168.191.0/24 /services/nfs/testnfs3/rootsquash:root_squash /services/nfs/testnfs2/rwhosts:192.168.190.148 /services/nfs/testnfs2/writemode:async /services/nfs/testnfs3/path:/testnfs3 /services/nfs/testnfs3/rwhosts:192.168.190.148;192.168.190.149 /services/nfs/testnfs1/hosts/1/rootsquash:no_root_squash /services/nfs/testnfs1/rootsquash:no_root_squash /services/nfs/testnfs2/fsid:1001]
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Using source template /etc/confd/templates/nfs.conf.tmpl
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Compiling source template /etc/confd/templates/nfs.conf.tmpl
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Comparing candidate config to /etc/exports
+2020-05-03T15:17:22+08:00 node0 confd[5636]: DEBUG Target config /etc/exports in sync
+2020-05-03T15:17:28+08:00 node0 confd[5636]: INFO Captured interrupt. Exiting...
+2020-05-03T15:17:35+08:00 node0 confd[5644]: INFO Backend set to etcd
+2020-05-03T15:17:35+08:00 node0 confd[5644]: INFO Starting confd
+2020-05-03T15:17:35+08:00 node0 confd[5644]: INFO Backend source(s) set to http://192.168.190.147:2379, http://192.168.190.148:2379, http://192.168.190.149:2379
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Loading template resources from confdir /etc/confd
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Found template: /etc/confd/conf.d/nfs.toml
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Loading template resource from /etc/confd/conf.d/nfs.toml
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Retrieving keys from store
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Key prefix set to /
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Got the following map from store: map[/services/nfs/testnfs3/rohosts:192.168.191.0/24 /services/nfs/testnfs3/rwhosts:192.168.190.148;192.168.190.149 /services/nfs/testnfs1/fsid:1000 /services/nfs/testnfs1/path:/testnfs1 /services/nfs/testnfs1/rootsquash:no_root_squash /services/nfs/testnfs2/path:/testnfs2 /services/nfs/testnfs2/rohosts:192.168.191.155 /services/nfs/testnfs1/hosts/1/ip:192.168.190.* /services/nfs/testnfs2/hosts/1/permission:rw /services/nfs/testnfs2/hosts/1/rootsquash:no_root_squash /services/nfs/testnfs2/rootsquash:no_root_squash /services/nfs/testnfs3/fsid:1002 /services/nfs/testnfs2/rwhosts:192.168.190.148 /services/nfs/testnfs3/path:/testnfs3 /services/nfs/testnfs3/rootsquash:root_squash /services/nfs/testnfs1/hosts/1/permission:rw /services/nfs/testnfs1/hosts/1/rootsquash:no_root_squash /services/nfs/testnfs1/hosts/1/writemode:sync /services/nfs/testnfs1/rohosts:192.168.191.156 /services/nfs/testnfs2/fsid:1001 /services/nfs/testnfs3/writemode:async /services/nfs/testnfs1/rwhosts:192.168.190.0/24;192.168.191.155 /services/nfs/testnfs1/writemode:sync /services/nfs/testnfs2/hosts/1/ip:192.168.190.148 /services/nfs/testnfs2/hosts/1/writemode:async /services/nfs/testnfs2/writemode:async]
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Using source template /etc/confd/templates/nfs.conf.tmpl
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Compiling source template /etc/confd/templates/nfs.conf.tmpl
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Comparing candidate config to /etc/exports
+2020-05-03T15:17:35+08:00 node0 confd[5644]: DEBUG Target config /etc/exports in sync
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Loading template resources from confdir /etc/confd
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Found template: /etc/confd/conf.d/nfs.toml
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Loading template resource from /etc/confd/conf.d/nfs.toml
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Retrieving keys from store
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Key prefix set to /
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Got the following map from store: map[/services/nfs/testnfs3/writemode:async /services/nfs/testnfs4/fsid:1003 /services/nfs/testnfs1/rwhosts:192.168.190.0/24;192.168.191.155 /services/nfs/testnfs3/rohosts:192.168.191.0/24 /services/nfs/testnfs2/rootsquash:no_root_squash /services/nfs/testnfs4/writemode:async /services/nfs/testnfs1/writemode:sync /services/nfs/testnfs2/rwhosts:192.168.190.148 /services/nfs/testnfs3/path:/testnfs3 /services/nfs/testnfs4/path:/testnfs4 /services/nfs/testnfs4/rootsquash:root_squash /services/nfs/testnfs1/fsid:1000 /services/nfs/testnfs1/hosts/1/ip:192.168.190.* /services/nfs/testnfs2/hosts/1/writemode:async /services/nfs/testnfs2/writemode:async /services/nfs/testnfs4/rwhosts:192.168.190.148;192.168.190.149 /services/nfs/testnfs1/rootsquash:no_root_squash /services/nfs/testnfs2/hosts/1/ip:192.168.190.148 /services/nfs/testnfs2/hosts/1/rootsquash:no_root_squash /services/nfs/testnfs2/path:/testnfs2 /services/nfs/testnfs3/rootsquash:root_squash /services/nfs/testnfs1/rohosts:192.168.191.156 /services/nfs/testnfs2/hosts/1/permission:rw /services/nfs/testnfs1/hosts/1/writemode:sync /services/nfs/testnfs1/path:/testnfs1 /services/nfs/testnfs2/fsid:1001 /services/nfs/testnfs2/rohosts:192.168.191.155 /services/nfs/testnfs3/fsid:1002 /services/nfs/testnfs3/rwhosts:192.168.190.148;192.168.190.149 /services/nfs/testnfs1/hosts/1/permission:rw /services/nfs/testnfs1/hosts/1/rootsquash:no_root_squash /services/nfs/testnfs4/rohosts:192.168.191.0/24]
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Using source template /etc/confd/templates/nfs.conf.tmpl
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Compiling source template /etc/confd/templates/nfs.conf.tmpl
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Comparing candidate config to /etc/exports
+2020-05-03T15:27:35+08:00 node0 confd[5644]: DEBUG Target config /etc/exports in sync
