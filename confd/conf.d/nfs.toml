@@ -1,7 +1,6 @@
 [template]
 src = "nfs.conf.tmpl"
-dest = "/etc/exports"
+dest = "/tmp/exports"
 keys = [
-    "/services/nfs"
+    "/njuata/services/nfs"
 ]
-reload_cmd = "/usr/sbin/exportfs -r"

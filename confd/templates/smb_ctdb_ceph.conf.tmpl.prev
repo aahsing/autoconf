@@ -1,0 +1,27 @@
+[global]
+    netbios name = Ceph-NAS
+    clustering = yes
+    ctdbd socket = /var/run/ctdb/ctdbd.socket
+    workgroup = SAMBA
+    security = user
+    passdb backend = tdbsam
+
+    load printers = no
+
+{{range $dir := lsdir "/services/smb" -}}
+  {{$sharename := printf "/services/smb/%s/sharename" $dir -}}
+  {{$sharepath := printf "/services/smb/%s/path" $dir -}}
+  {{$readlist := printf "/services/smb/%s/readlist" $dir -}}
+  {{$writelist := printf "/services/smb/%s/writelist" $dir -}}
+[{{getv $sharename}}]
+         vfs objects = acl_xattr ceph
+         path = {{getv $sharepath}}
+         kernel share modes = no
+         browseable = yes
+         valid users = {{getv $readlist}} {{getv $writelist}} 
+         read list = {{getv $readlist}}
+         write list = {{getv $writelist}}
+         ceph:config_file = /etc/ceph/ceph.conf
+         ceph:user_id = admin
+{{end}}
+

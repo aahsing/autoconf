@@ -1,17 +1,19 @@
-{{range $dir := lsdir "/services/nfs" -}}
-  {{$pathdir := printf "/services/nfs/%s/path" $dir -}}
-  {{$fsiddir := printf "/services/nfs/%s/fsid" $dir -}}
-  {{$rwhosts := printf "/services/nfs/%s/rwhosts" $dir -}}
-  {{$rohosts := printf "/services/nfs/%s/rohosts" $dir -}}
-  {{$writemode := printf "/services/nfs/%s/writemode" $dir -}}
-  {{$rootsquash := printf "/services/nfs/%s/rootsquash" $dir -}}
+{{range $tenantdir := lsdir "/njuata/services/nfs" -}}
+{{$temp := printf "/njuata/services/nfs/%s/" $tenantdir -}}
+{{range $dir := lsdir $temp -}}
+  {{$pathdir := printf "/njuata/services/nfs/%s/%s/path" $tenantdir $dir -}}
+  {{$fsiddir := printf "/njuata/services/nfs/%s/%s/fsid" $tenantdir $dir -}}
+  {{$rwhosts := printf "/njuata/services/nfs/%s/%s/rwhosts" $tenantdir $dir -}}
+  {{$rohosts := printf "/njuata/services/nfs/%s/%s/rohosts" $tenantdir $dir -}}
+  {{$writemode := printf "/njuata/services/nfs/%s/%s/writemode" $tenantdir $dir -}}
+  {{$rootsquash := printf "/njuata/services/nfs/%s/%s/rootsquash" $tenantdir $dir -}}
   {{$rwhostsv := getv $rwhosts -}}
   {{$pathdirv := getv $pathdir -}}
   {{$fsiddirv := getv $fsiddir -}}
   {{$rohostsv := getv $rohosts -}}
   {{$writemodev := getv $writemode -}}
   {{$rootsquashv := getv $rootsquash -}}
-  {{$pathdirv}} {{if ne $rwhostsv "" -}}
+  {{$pathdirv}}  {{if ne $rwhostsv "" -}}
     {{$rwhostsl := split $rwhostsv ";" -}}
     {{$options := printf "(fsid=%s,%s,rw,%s) " $fsiddirv $writemodev $rootsquashv -}}
     {{range $rwhost := $rwhostsl -}}
@@ -23,5 +25,9 @@
     {{range $rohost := $rohostsl -}}
       {{$rohost}}{{$options -}}
     {{end -}}
-    {{end}}
-{{end}}
+    {{end}} {{if eq $rwhostsv "" -}} {{if eq $rohostsv "" -}} 
+    {{$options := printf "(fsid=%s,%s,ro,%s) " $fsiddirv $writemodev $rootsquashv -}}
+    *{{$options -}}
+    {{end -}}{{end}}
+{{end -}}
+{{end -}}

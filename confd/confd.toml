@@ -1,12 +1,14 @@
-backend = "etcd"
+backend = "etcdv3"
 confdir = "/etc/confd"
 log-level = "debug"
-interval = 300
+interval = 30
 nodes = [
-  "http://192.168.190.147:2379",
-  "http://192.168.190.148:2379",
-  "http://192.168.190.149:2379",
+  "http://10.135.4.66:2379",
+  "http://10.135.4.67:2379",
+  "http://10.135.4.68:2379",
 ]
-watch = true
+basic_auth = true
+username = "root"
+password = "passw0rd"
 noop = false
 scheme = "http"

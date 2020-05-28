@@ -1,0 +1,27 @@
+{{range $dir := lsdir "/njuata/services/nfs" -}}
+  {{$pathdir := printf "/njuata/services/nfs/%s/path" $dir -}}
+  {{$fsiddir := printf "/njuata/services/nfs/%s/fsid" $dir -}}
+  {{$rwhosts := printf "/njuata/services/nfs/%s/rwhosts" $dir -}}
+  {{$rohosts := printf "/njuata/services/nfs/%s/rohosts" $dir -}}
+  {{$writemode := printf "/njuata/services/nfs/%s/writemode" $dir -}}
+  {{$rootsquash := printf "/njuata/services/nfs/%s/rootsquash" $dir -}}
+  {{$rwhostsv := getv $rwhosts -}}
+  {{$pathdirv := getv $pathdir -}}
+  {{$fsiddirv := getv $fsiddir -}}
+  {{$rohostsv := getv $rohosts -}}
+  {{$writemodev := getv $writemode -}}
+  {{$rootsquashv := getv $rootsquash -}}
+  {{$pathdirv}} {{if ne $rwhostsv "" -}}
+    {{$rwhostsl := split $rwhostsv ";" -}}
+    {{$options := printf "(fsid=%s,%s,rw,%s) " $fsiddirv $writemodev $rootsquashv -}}
+    {{range $rwhost := $rwhostsl -}}
+      {{$rwhost}}{{$options -}}
+    {{end -}}
+  {{end}} {{if ne $rohostsv "" -}}
+    {{$rohostsl := split $rohostsv ";" -}}
+    {{$options := printf "(fsid=%s,%s,ro,%s) " $fsiddirv $writemodev $rootsquashv -}}
+    {{range $rohost := $rohostsl -}}
+      {{$rohost}}{{$options -}}
+    {{end -}}
+    {{end}}
+{{end}}

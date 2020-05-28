@@ -1,0 +1,8 @@
+[template]
+src = "smb_ctdb_ceph.conf.tmpl"
+dest = "/tmp/smb.conf"
+keys = [
+    "/njuata/services/smb"
+]
+#check_cmd = "/usr/bin/testparm -s"
+#reload_cmd = "systemctl reload smb"

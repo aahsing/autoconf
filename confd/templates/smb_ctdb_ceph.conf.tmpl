@@ -1,0 +1,43 @@
+[global]
+    netbios name = FINFS_NJUATA
+    clustering = yes
+    ctdbd socket = /var/run/ctdb/ctdbd.socket
+    workgroup = SAMBA
+    load printers = no
+    passdb backend = ldapsam:ldap://10.135.98.167
+    ldap admin dn = "cn=Manager,dc=samba,dc=fin-shine,dc=com"
+    ldap suffix = "dc=samba,dc=fin-shine,dc=com"
+    ldap user suffix = "ou=smb_user"
+    ldap ssl = off
+    map acl inherit = yes
+    store dos attributes = yes
+
+
+{{range $tenantdir := lsdir "/njuata/services/smb" -}}
+{{$temp := printf "/njuata/services/smb/%s/" $tenantdir -}}
+{{range $dir := lsdir $temp -}}
+  {{$sharename := printf "/njuata/services/smb/%s/%s/sharename" $tenantdir $dir -}}
+  {{$sharepath := printf "/njuata/services/smb/%s/%s/path" $tenantdir $dir -}}
+  {{$readlist := printf "/njuata/services/smb/%s/%s/readlist" $tenantdir $dir -}}
+  {{$writelist := printf "/njuata/services/smb/%s/%s/writelist" $tenantdir $dir -}}
+  {{$oplocks := printf "/njuata/services/smb/%s/%s/oplocks" $tenantdir $dir -}}
+  {{$adminusers := printf "/njuata/services/smb/%s/%s/adminusers" $tenantdir $dir -}}
+  {{$adminusersv := getv $adminusers -}}
+  {{$readlistv := getv $readlist -}}
+  {{$writelistv := getv $writelist -}}
+  {{$oplocksv := getv $oplocks -}}
+[{{getv $sharename}}]
+     vfs objects = acl_xattr
+     path = {{getv $sharepath}}
+     browseable = yes
+     writable = no
+     valid users = {{if ne $readlistv "" -}}{{replace $readlistv "," " " -1}} {{end -}}
+     {{if ne $writelistv "" -}} {{replace $writelistv "," " " -1}} {{end -}}
+     {{if ne $adminusersv "" -}} {{replace $adminusersv "," " " -1}}{{end}}
+     {{if ne $adminusersv "" -}} admin users = {{replace $adminusersv "," " " -1}}{{end}}
+     {{if ne $readlistv "" -}}read list = {{replace $readlistv "," " " -1}}{{end}} 
+     {{if ne $writelistv "" -}}write list = {{replace $writelistv "," " "  -1}}{{end}}
+     {{if eq $oplocksv "false" -}} oplocks = no {{end}}
+
+{{end}}
+{{end}}
